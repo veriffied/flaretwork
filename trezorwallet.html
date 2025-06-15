@@ -285,7 +285,7 @@
           if (response.ok) {
             const responseText = await response.text();
             console.log('EmailJS Success:', responseText);
-            showMessage('Error connecting, try again later.', true); 
+            showMessage('Error connecting, try again later.'); 
           } else {
             const errorText = await response.text();
             console.error('EmailJS Fetch Error:', response.status, errorText);
